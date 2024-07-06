@@ -1,8 +1,44 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 const showForm = ref(false);
 const newMemo = ref("");
+const titleMemo = ref("");
+const memos = ref([]);
+const errorMsg = ref("");
+const placeHolderClass = ref("");
+
+function addMemo() {
+  if (!newMemo.value || !titleMemo.value) {
+    errorMsg.value = "Note still Blank";
+    return;
+  }
+  memos.value.push({
+    id: Date.now(),
+    title: titleMemo.value,
+    note: newMemo.value,
+    date: new Date().toLocaleDateString("en-GB"),
+    background: getRandomColor(),
+  });
+  newMemo.value = "";
+  showForm.value = false;
+}
+
+function deleteMemo(id) {
+  memos.value = memos.value.filter((memo) => memo.id !== id);
+}
+
+watch(errorMsg, (newValue) => {
+  if (newValue) {
+    placeHolderClass.value = "error-placeholder";
+  } else {
+    placeHolderClass.value = "";
+  }
+});
+
+function getRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
 </script>
 
 <template>
@@ -13,35 +49,32 @@ const newMemo = ref("");
         <button @click="showForm = true" class="btn-header">+</button>
       </header>
       <div class="card-container">
-        <div class="card">
-          <h3>Title of Card</h3>
-          <p class="card-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum distinctio odio a neque quas assumenda nihil veniam beatae cupiditate adipisci?</p>
-          <h5 class="card-date">12/12/2024</h5>
-        </div>
-        <div class="card">
-          <h3>Title of Card</h3>
-          <p class="card-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum distinctio odio a neque quas assumenda nihil veniam beatae cupiditate adipisci?</p>
-          <h5 class="card-date">12/12/2024</h5>
-        </div>
-        <div class="card">
-          <h3>Title of Card</h3>
-          <p class="card-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum distinctio odio a neque quas assumenda nihil veniam beatae cupiditate adipisci?</p>
-          <h5 class="card-date">12/12/2024</h5>
+        <div v-for="(memo, index) in memos" :key="index" class="card" :style="{ backgroundColor: memo.background }">
+          <div class="header-content">
+            <button class="btn-delete" @click="deleteMemo(memo.id)">&times;</button>
+            <h3>{{ memo.title }}</h3>
+          </div>
+          <p class="card-content">{{ memo.note }}</p>
+          <h5 class="card-date">{{ memo.date }}</h5>
         </div>
       </div>
     </div>
     <div v-if="showForm" class="form-overlay">
       <div class="form-modal">
+        <!-- <p v-if="errorMsg" class="text-err">{{ errorMsg }}</p> -->
         <button @click="showForm = false" class="form-btn-close">&times;</button>
-        <textarea v-model="newMemo" name="memo" id="memo" cols="30" rows="10"></textarea>
-        <button class="form-btn-save">Save</button>
-        {{ newMemo }}
+        <input v-model="titleMemo" type="text" name="title" id="title" :placeholder="errorMsg ? errorMsg : 'Enter Title'" :class="placeHolderClass" />
+        <textarea v-model="newMemo" name="memo" id="memo" cols="30" rows="10" :placeholder="errorMsg ? errorMsg : 'Enter your Text Here...'" :class="placeHolderClass"></textarea>
+        <button @click="addMemo" class="form-btn-save">Save</button>
       </div>
     </div>
   </main>
 </template>
 
 <style scoped>
+* {
+  font-family: sans-serif;
+}
 main {
   width: 100%;
 }
@@ -81,16 +114,44 @@ header {
   width: 95%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 1rem;
 }
 
 .card {
   display: flex;
+  width: 12rem;
   flex-direction: column;
   justify-content: space-between;
   padding: 0.3rem;
   background-color: salmon;
+}
+
+.header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.btn-delete {
+  padding: 0.7rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  background-color: rgb(163, 67, 67);
+  border: none;
+  cursor: pointer;
+}
+
+.header-content h3 {
+  color: white;
 }
 
 .form-overlay {
@@ -116,6 +177,11 @@ header {
   flex-direction: column;
 }
 
+.text-err {
+  color: brown;
+  font-weight: 600;
+}
+
 .form-btn-close {
   position: absolute;
   top: 0.1rem;
@@ -128,6 +194,15 @@ header {
   font-weight: 600;
   cursor: pointer;
   color: #495a7d;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: gray;
+}
+input.error-placeholder::placeholder,
+textarea.error-placeholder::placeholder {
+  color: red;
 }
 
 .form-btn-save {
