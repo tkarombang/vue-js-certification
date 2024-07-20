@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nama": "Laptop",
+    "price": 1200,
+    "year": 2022
+  },
+  {
+    "id": 2,
+    "nama": "Smartphone",
+    "price": 800,
+    "year": 2021
+  },
+  {
+    "id": 3,
+    "nama": "Tablet",
+    "price": 400,
+    "year": 2022
+  },
+  {
+    "id": 4,
+    "nama": "Notebook",
+    "price": 1000,
+    "year": 2022
+  },
+  {
+    "id": 5,
+    "nama": "Smartwatch",
+    "price": 250,
+    "year": 2020
+  },
+  {
+    "id": 6,
+    "nama": "Camera",
+    "price": 600,
+    "year": 2023
+  },
+  {
+    "id": 7,
+    "nama": "Gaming Console",
+    "price": 800,
+    "year": 2023
+  },
+  {
+    "id": 8,
+    "nama": "AirBud",
+    "price": 900,
+    "year": 2023
+  },
+  {
+    "id": 9,
+    "nama": "Macbook",
+    "price": 2200,
+    "year": 2024
+  },
+  {
+    "id": 10,
+    "nama": "TWS",
+    "price": 200,
+    "year": 2023
+  }
+]
