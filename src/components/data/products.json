@@ -3,60 +3,70 @@
     "id": 1,
     "nama": "Laptop",
     "price": 1200,
-    "year": 2022
+    "year": 2022,
+    "owner": { "name": "Rasdin", "email": "rasdin@xample.com" }
   },
   {
     "id": 2,
     "nama": "Smartphone",
     "price": 800,
-    "year": 2021
+    "year": 2021,
+    "owner": { "name": "Rizal", "email": "risal@xample.com" }
   },
   {
     "id": 3,
     "nama": "Tablet",
     "price": 400,
-    "year": 2022
+    "year": 2022,
+    "owner": { "name": "Ramadan", "email": "ramadan@xample.com" }
   },
   {
     "id": 4,
     "nama": "Notebook",
     "price": 1000,
-    "year": 2022
+    "year": 2022,
+    "owner": { "name": "rijal", "email": "rijal@xample.com" }
   },
   {
     "id": 5,
     "nama": "Smartwatch",
     "price": 250,
-    "year": 2020
+    "year": 2020,
+    "owner": { "name": "Rafi", "email": "rafi@xample.com" }
   },
   {
     "id": 6,
     "nama": "Camera",
     "price": 600,
-    "year": 2023
+    "year": 2023,
+    "owner": { "name": "Alvian", "email": "allvian@xample.com" }
   },
   {
     "id": 7,
     "nama": "Gaming Console",
     "price": 800,
-    "year": 2023
+    "year": 2023,
+    "owner": { "name": "Memey", "email": "memey@xample.com" }
   },
   {
     "id": 8,
     "nama": "AirBud",
     "price": 900,
-    "year": 2023
+    "year": 2023,
+    "owner": { "name": "Cintya", "email": "cintya@xample.com" }
   },
   {
     "id": 9,
     "nama": "Macbook",
     "price": 2200,
-    "year": 2024
+    "year": 2024,
+    "owner": { "name": "Angle", "email": "angle@xample.com" }
   },
   {
     "id": 10,
     "nama": "TWS",
     "price": 200,
-    "year": 2023
+    "year": 2023,
+    "owner": { "name": "Rara", "email": "rara@xample.com" }
   }
 ]

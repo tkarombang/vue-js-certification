@@ -16,7 +16,7 @@ watch(search, () => {
 <template>
   <main>
     <header>
-      <h1 id="title">Quizes</h1>
+      <h1 id="title">Search</h1>
       <input v-model.trim="search" type="text" id="search-input" />
     </header>
     <section id="quiz-container">
@@ -26,13 +26,6 @@ watch(search, () => {
 </template>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
 main {
   max-width: 80%;
   margin: 0 auto;

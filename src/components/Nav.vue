@@ -7,13 +7,12 @@ import { RouterLink } from "vue-router";
     <RouterLink active-class="active" to="/">Home</RouterLink>
     <RouterLink active-class="active" to="/memo">Memo</RouterLink>
     <RouterLink active-class="active" to="/quiz">Quizes</RouterLink>
+    <RouterLink active-class="active" to="/products">Products</RouterLink>
   </div>
 </template>
 
 <style scoped>
 * {
-  text-decoration: none;
-  font-family: sans-serif;
   color: antiquewhite;
 }
 .container {

@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import productjson from "../components/data/products.json";
 </script>
 <template>
   <h1>Wellcome to Dashboard!</h1>
@@ -17,9 +16,12 @@ import productjson from "../components/data/products.json";
         <span>&raquo;</span>
       </div>
     </RouterLink>
-  </div>
-  <div class="footer">
-    <RouterLink id="route" v-for="product in productjson" :key="product.id" :to="`/products/${product.id}`"> {{ product.nama }}</RouterLink>
+    <RouterLink to="/products" id="route">
+      <div class="card">
+        <span>Products</span>
+        <span>&raquo;</span>
+      </div>
+    </RouterLink>
   </div>
 </template>
 
@@ -40,8 +42,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
-  border: 5px solid teal;
-  border-radius: 10px;
   margin: 5rem auto;
   padding: 2rem;
   width: 60%;

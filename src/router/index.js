@@ -4,6 +4,15 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: "/:catchall(.*)*",
+      name: "404 NOT FOUND",
+      component: () => import("../views/error/404.vue"),
+    },
+    {
+      path: "/home",
+      redirect: "/",
+    },
+    {
       path: "/",
       name: "home",
       component: () => import("../views/Home.vue"),
@@ -19,9 +28,21 @@ const router = createRouter({
       component: () => import("../views/Quizes.vue"),
     },
     {
-      path: "/products/:id",
+      path: "/products",
       name: "products",
       component: () => import("../views/Products.vue"),
+    },
+    {
+      path: "/products/:id",
+      name: "id",
+      component: () => import("../views/Product.vue"),
+      children: [
+        {
+          path: "owner",
+          name: "owner",
+          component: () => import("../views/Owner.vue"),
+        },
+      ],
     },
   ],
 });
