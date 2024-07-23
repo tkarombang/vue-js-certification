@@ -14,23 +14,18 @@ watch(search, () => {
 </script>
 
 <template>
-  <main>
+  <div>
     <header>
-      <h1 id="title">Search</h1>
-      <input v-model.trim="search" type="text" id="search-input" />
+      <h1 id="title">Quizes</h1>
+      <input v-model.trim="search" type="text" id="search-input" placeholder="Search" />
     </header>
     <section id="quiz-container">
       <Component_Quizes v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
     </section>
-  </main>
+  </div>
 </template>
 
 <style scoped>
-main {
-  max-width: 80%;
-  margin: 0 auto;
-}
-
 header {
   margin: 2rem 0.5rem;
   display: flex;

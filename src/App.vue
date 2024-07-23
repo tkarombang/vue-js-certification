@@ -20,4 +20,8 @@ import Nav from "./components/Nav.vue";
   text-decoration: none;
   box-sizing: border-box;
 }
+main {
+  max-width: 80%;
+  margin: 0 auto;
+}
 </style>

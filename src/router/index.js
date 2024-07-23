@@ -23,9 +23,14 @@ const router = createRouter({
       component: () => import("../views/Memo.vue"),
     },
     {
-      path: "/quiz",
-      name: "quiz",
+      path: "/quizes",
+      name: "quizes",
       component: () => import("../views/Quizes.vue"),
+    },
+    {
+      path: "/quizes/:id",
+      name: "quiz",
+      component: () => import("../views/Quiz.vue"),
     },
     {
       path: "/products",

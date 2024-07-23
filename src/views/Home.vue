@@ -10,7 +10,7 @@ import { RouterLink } from "vue-router";
         <span>&raquo;</span>
       </div>
     </RouterLink>
-    <RouterLink to="/quiz" id="route">
+    <RouterLink to="/quizes" id="route">
       <div class="card">
         <span>Quizes</span>
         <span>&raquo;</span>
