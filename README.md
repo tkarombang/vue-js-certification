@@ -52,3 +52,22 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Feature in App
+
+- memo
+- Quizes
+- Products
+
+### Memo
+
+![memo](assets_img/1.1.%20memo%20empty.png)
+Source Code function addMemo(), deleteMemo(), wathc()
+![sorce code](assets_img/1.Memo-code.png)
+
+- Add Memo
+  fungsi ini untuk menambahkan Memo, yang di dalamnya terdapat sebauh kondisi apakah field memo tersebut kosong atau tidak ada. Apabila kosong dan melakukan proses tambah dengan klick tambah maka akan tampil pesan error "Note Still Blank..." sebagai variable errMsg kemudian akan mengirimkannya sebagai parameter di properti wathc() setelah itu jika terisi maka akan melanjutkan proses penambahan memo pada method memo.value.push().
+  ![Add Memo](assets_img/1.2.%20memo%20add.png)
+- Delete Memo
+  fungsi ini menerima parameter id dari data memo yang sudah di simpan dan akan melakukan filter pada memo.value berdasarkan memo.id dengan parameter filternya(memo)apakah tidak sama dengan id yang ada di parameter deleteMemo()
+  ![memo exist](assets_img/1.3.%20memo%20adding.png)
